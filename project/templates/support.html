@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+     <link  type="text/css" rel="stylesheet" href="styles.css">
+    <title>
+        output
+    </title>
+</head>
+<body>
+    <div class="topnav">
+  <a  href="/">Home</a>
+  <a href="/calculator">body basics</a>
+  <a href="login.html">login</a>
+  <a  href="count.html"> calculate calorie_intake</a>
+</div>
+    <div class="output"
+        <p>
+            your bmi is: {{bmi}}
+        </p>
+        <p>
+            your bmr is: {{bmr}}
+        </p>
+        <p>
+            your daily calorie intake shoud be : {{calorie}}
+        </p>
+        <p>
+            your body fat percentage is : {{body_fat_percentage}}
+        </p>
+        your lean_mass is : {{lean_mass}}
+    </div>
+     </body>
+</html>

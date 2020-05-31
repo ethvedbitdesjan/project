@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	 <link  type="text/css" rel="stylesheet" href="styles.css">
+	<title>
+		add an item to your personal list
+	</title>
+</head>
+<body>
+	 <div class="topnav">
+  <a  href="/">Home</a>
+  <a href="/calculator">body basics</a>
+  <a href="login.html">login</a>
+  <a  href="count.html"> calculate calorie_intake</a>
+</div>
+   <h1 style="text-align: center"> Add something new </h1>
+   <p>
+    <ul>
+    	<li>  This is where you can personalize your calorie intakes. </li>
+    	<li> Maybe you wanted to add nutella in the food list and you can do it here. You just have to type the name of the dish and the calories in it per 100 grams using method1.</li>
+    	<li>  Everything is not as simple as nutella. Let's assume that you eat sandwitches regularly and it is painful to select tomato and bread and cheese again and again. Thus, using method 2, you can simplify the process.</li>
+    	<li> Keep on adding the ingredients and when you add the last ingredient, type the name of the dish and click 'add the dish', so the next time you want to eat a sandwitch, it will just appear in my dishes list with the corresponding amount of calories.</li>
+    </ul>
+   </p>
+   <p>
+   	<div class="item-page">
+  <div class="form">
+   	<label> method 1 </label> 
+   	<form action="/add" method="post">
+   		<input type="text" name="name" placeholder="dish or item name">
+   		<input type="number" name="calories_amount" placeholder="calories that the item has.">
+   		<input type="submit" value="add the item in my list">
+   	</form>
+   </p>
+   <p>
+   	<label> method 2 </label>
+   	<form action="/countdish" method="post">
+   		<input name="item" list="foods" placeholder="select the item">
+   		<datalist id="foods">
+   		 {%for food_calorie in food_calories %}
+    	     <option value="{{food_calorie.food_item}} - {{food_calorie.calories}}"> </option>
+    	 {% endfor %}
+   		</datalist>
+   		<input type="text" name="name" placeholder="item or dish name">
+   		<input type="number" name="amount" placeholder="how much amount in grams">
+   		<input type="submit" value="add the component" formaction="/countdish" method="post">
+   		<input type="submit" value="add the dish" formaction="/add_dish" method="post">
+   	</form>
+
+{% endblock %}

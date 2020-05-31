@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+   <link type="text/css" rel="stylesheet" href="styles.css">
+  <title>
+    count your calories
+  </title>
+</head>
+<body>
+   <div class="topnav">
+  <a  href="/">Home</a>
+  <a href="/calculator">body basics</a>
+  <a href="login.html">login</a>
+  <a class="active" href="count.html"> calculate calorie_intake</a>
+</div>
+    <h1>Count Your Calories</h1>
+    <div class="item-page">
+  <div class="form">
+    <form action="/count" method="post">
+       <input name="food" list="foods" placeholder="food item">
+	   <datalist id="foods">
+         {%for food_calorie in food_calories %}
+    	     <option value="{{food_calorie.food_item}} - {{food_calorie.calories}}"> </option>
+    	 {% endfor %}
+       </datalist>
+       <input name="dish" list="dishes" placeholder="dish item">
+       <datalist id="dishes">
+       	 {% for dish_calorie in dish_calories %}
+       	       <option value="{{dish_calorie.food_item}} - {{ dish_calorie.calories}}"> </option>
+       	 {% endfor %}
+       </datalist>
+       this only workd if have added a dish of your own
+       <p>
+       	  <input type="number" name="amount" placeholder="enter how many grams of food item have you eaten">
+       </p>
+       <p>
+       	<input type="number" name="amount1" placeholder="enter how many grams of dish you have eaten">
+       </p> 
+       <p>
+       <input type="submit" value="add">
+       </p>
+       <p>
+       	<input type="submit" value="sum up" formaction="/sumup" method="post">
+       </p>
+       <p>
+       	 <label> Want a dish or food item that is not there </label> <input type="submit" value="add it" formaction="/new" method="post"></p>
+    </form>
+    <p>
+    	<form action="/logout" method="post">
+    		<input type="submit" value="logout">
+    	</form>
+    </p>
+    <p>
+    	{% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+    </p>

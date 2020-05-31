@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Monitor your body </title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-gymso-style.css') }}">
+
+     <!-- MAIN CSS -->
+
+     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+<!--
+Tooplate 2119 Gymso Fitness
+https://www.tooplate.com/view/2119-gymso-fitness
+-->
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+<!--
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">Home</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link smoothScroll"src="{{ url_for('static', filename='js/smoothscroll.js') }}">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link smoothScroll">login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="count.html" class="nav-link smoothScroll">calorie counter</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/calculator" class="nav-link smoothScroll">body basics</a>
+                    </li>
+                </ul>
+
+                
+            </div>
+
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+     <!-- HERO -->
+     <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+
+            <div class="bg-overlay"></div>
+
+               <div class="container">
+                    <div class="row">
+
+                         <div class="col-lg-8 col-md-10 mx-auto col-12">
+                              <div class="hero-text mt-5 text-center">
+
+                                    <h6 data-aos="fade-up" data-aos-delay="300">new way to build a healthy lifestyle!</h6>
+
+                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Monitor your body</h1>
+
+                                  
+                                   
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+     </section>
+
+
+     <section class="feature" id="feature">
+        <div class="container">
+            <div class="row">
+
+                <div class="hero d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="mb-3 text-white" data-aos="fade-up">Get to know your body basics</h2>
+
+                    <h6 class="mb-4 text-white" data-aos="fade-up">Calculate bmi, bmr, body_fat _percentage, required daily intake of calories and much more.</h6>
+
+                    <p data-aos="fade-up" class="mb-4 text-white" >Our most exciting feature is the calorie intake calculator. It literally tells you how many calories you have taken in according to what you have eaten.</p>
+
+                    <a href="/calculator" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal">Calculate body basics</a> 
+                    <a href="/count.html" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal">Calculate your calorie intake</a> 
+                </div>
+
+                
+
+            </div>
+        </div>
+    </section>
+
+
+     <!-- ABOUT -->
+    
+
+     <!-- CONTACT -->
+     <section class="contact section" id="contact">
+          <div class="container">
+               <div class="row">
+
+                    <div class="ml-auto col-lg-5 col-md-6 col-2">
+                        <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">I value feedbacks</h2>
+                        <p> Please give feedback here or mail to ved6734@gmail.com</p>
+
+                        <form action="/message" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
+                            <input type="text" class="form-control" name="valuable_name" placeholder="Name(optional)">
+
+
+                            <textarea class="form-control" rows="5" name="feedback" placeholder="Message"></textarea>
+
+                            <button type="submit" class="form-control" id="submit-button" name="submit">Send Message</button>
+                        </form>
+                    </div>
+
+
+                        </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+    
+
+    <!-- Modal -->
+    
+    <p style=" 
+   left: 0;
+   bottom: 50px;
+   width: 25%;
+   background-color: black;
+   color: white;
+   text-align: center;"> A Vedaant V. Jain product.</p>
+   <p style=" 
+   left: 0;
+   bottom: 0;
+   width: 20%;
+   background-color: white;
+   color: footer;
+   text-align: left;"> The homepage template is from Tooplate.</p>
+     <!-- SCRIPTS -->
+     <script src="js/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/aos.js"></script>
+     <script src="js/smoothscroll.js"></script>
+     <script src="js/custom.js"></script>
+
+</body>
+</html>

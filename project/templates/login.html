@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
+	<title>
+		login
+
+	</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
+</head>
+<body>
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	 <div class="topnav">
+  <a  href="/">Home</a>
+  <a href="/calculator">body basics</a>
+  <a  class="active" href="login.html">login</a>
+  <a  href="count.html"> calculate calorie_intake</a>
+</div>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <div class="login-page">
+  <div class="form">
+  	<form class="login-form" action="/login.html" method="post">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <input type="submit" value="login">
+      <input type="submit" value="register" formaction="/register" method="post">
+     </form>
+  </div>
+</div>
+   <p>
+    	{% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+    </p>

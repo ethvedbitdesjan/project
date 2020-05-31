@@ -30,6 +30,25 @@ def main():
     
 app = Flask(__name__)
 app.secret_key="bajabaja"
+def counting1():
+    food = request.form.get("food")
+    
+    dish= request.form.get("dish")
+    if request.form.get("amount1") is not None & dish is not None:
+         amount1 = float(request.form.get("amount1"))
+         num1=int(dish[-3:])
+         main.total = main.total + (num1* amount1/100)
+    if request.form.get("amount") is not None & food is not None:
+        amount = float(request.form.get("amount"))
+        num=int(food[-3:])
+        main.total = main.total + (num* amount/100)
+    
+def main():
+    main.total=0
+    main.calories=0
+    main.check=1
+    main.username=""
+    app.run()
 engine = create_engine("postgres://rwgezovhlswkpl:76b852320eeed7369c85e157e200560275201569c1920d13dd5d674840c1758b@ec2-52-70-15-120.compute-1.amazonaws.com:5432/da52lq56einar8")
 db = scoped_session(sessionmaker(bind=engine))
 

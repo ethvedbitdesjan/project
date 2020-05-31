@@ -166,8 +166,7 @@ def register():
     else:
        flash("user already registered!")
        registered_user=None
-    else:
-        flash("Invalid input")
+    
     return render_template("login.html")
 @app.route("/calculator")
 def calculator():

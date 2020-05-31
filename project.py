@@ -7,48 +7,27 @@ import smtplib
 import os
 import csv
 import math
+total1 =0
+calories1=0
+check1=1
+username1=""
 def counting1():
+    global total1, calories1, check1, username1
     food = request.form.get("food")
-    
     dish= request.form.get("dish")
     if request.form.get("amount1") is not None & dish is not None:
          amount1 = float(request.form.get("amount1"))
          num1=int(dish[-3:])
-         main.total = main.total + (num1* amount1/100)
+         total1 = total1 + (num1* amount1/100)
     if request.form.get("amount") is not None & food is not None:
         amount = float(request.form.get("amount"))
         num=int(food[-3:])
-        main.total = main.total + (num* amount/100)
+        total1 = total1 + (num* amount/100)
     
 def main():
-    main.total=0
-    main.calories=0
-    main.check=1
-    main.username=""
-    app.run()
-
-    
+   app.run()    
 app = Flask(__name__)
 app.secret_key="bajabaja"
-def counting1():
-    food = request.form.get("food")
-    
-    dish= request.form.get("dish")
-    if request.form.get("amount1") is not None & dish is not None:
-         amount1 = float(request.form.get("amount1"))
-         num1=int(dish[-3:])
-         main.total = main.total + (num1* amount1/100)
-    if request.form.get("amount") is not None & food is not None:
-        amount = float(request.form.get("amount"))
-        num=int(food[-3:])
-        main.total = main.total + (num* amount/100)
-    
-def main():
-    main.total=0
-    main.calories=0
-    main.check=1
-    main.username=""
-    app.run()
 engine = create_engine("postgres://rwgezovhlswkpl:76b852320eeed7369c85e157e200560275201569c1920d13dd5d674840c1758b@ec2-52-70-15-120.compute-1.amazonaws.com:5432/da52lq56einar8")
 db = scoped_session(sessionmaker(bind=engine))
 
@@ -66,12 +45,13 @@ def index():
     return render_template("index.html")
 @app.route("/count.html")
 def count_calories():
+    global check1, calories1, total1
     food_calories=db.execute("SELECT * FROM food_calories").fetchall()
-    if main.check==1:
+    if check1==1:
         session.pop("logged_in",None)
     if "logged_in" in session:
         string = "SELECT * FROM "
-        string += main.username
+        string += username1
         dish_calories = db.execute(string).fetchall()
         return render_template("count.html", food_calories=food_calories, dish_calories = dish_calories)
     else:
@@ -82,9 +62,10 @@ def count():
     return redirect("http://127.0.0.1:5000/")
 @app.route("/sumup", methods=["POST"])
 def sumup():
+    global total1, calories1, check1, username1
     counting1()
-    return render_template("hello.html",total=main.total)
-    main.total=0
+    return render_template("hello.html",total=total1)
+    total1=0
 @app.route("/new", methods=["POST"])
 @login_required
 def new_item():
@@ -93,11 +74,12 @@ def new_item():
 @app.route("/add", methods=["POST"])
 @login_required
 def add():
+    global username1, total1, calories1, check1
     name=request.form.get("name")
     calories = request.form.get("calories_amount")
     if name is not None & calories is not None:
         string="INSERT INTO "
-        string +=main.username
+        string +=username1
         string+="(food_item, calories) VALUES (:name, :calories)"
         db.execute(string, {"name":name, "calories":calories})
         db.commit()
@@ -106,30 +88,32 @@ def add():
 @login_required
 def countdish():
     food = request.form.get("item")
-    
+    global total1, calories1, username1, check1
     if request.form.get("amount") is not None & food is not None:
         num=int(food[-3:])
         amount=float(request.form.get("amount"))
-        main.total = main.total+ (num * amount/100)
+        total1 = total1+ (num * amount/100)
     return render_template("newitem.html")
 @app.route("/add_dish",methods=["POST"])
 @login_required
 def add_dish():
+    global total1, calories1, username1, check1
     name=request.form.get("name")
     food = request.form.get("item")
     if request.form.get("amount") is not None & food is not None:
         num=int(food[-3:])
         amount=float(request.form.get("amount"))
-        main.total = main.total+ (num * amount/100)
+        total1 = total1+ (num * amount/100)
         string="INSERT INTO "
-        string +=main.username
+        string +=username1
         string+="(food_item, calories) VALUES (:name, :calories)"
-        db.execute(string, {"name":name, "calories":main.total})
+        db.execute(string, {"name":name, "calories":total1})
         db.commit()
         flash("new dish added.")
     return redirect("http://127.0.0.1:5000/")
 @app.route("/login.html", methods=["GET","POST"])
 def login():
+    global username1, total1, check1, calories1
     if request.method=="GET":
         return render_template("login.html")
     else:
@@ -145,9 +129,9 @@ def login():
         return render_template("login.html")
      else:
         session['logged_in']=True
-        main.check=0
+        check1=0
         flash("you just logged in.")
-        main.username=username
+        username1=username
         return redirect("http://127.0.0.1:5000")
 @app.route("/logout", methods=["POST"])
 @login_required
@@ -157,6 +141,7 @@ def logout():
     return render_template("index.html")
 @app.route("/register", methods=["POST"])
 def register():
+    global username1, total1, check1, calories1
     if 'logged_in' in session:
         session.pop("logged_in", None)
     registered_user=None

@@ -553,6 +553,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   .contact h2 + p {
     max-width: 90%;
+    text-align: center;
   }
 
   .google-map {
@@ -626,8 +627,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   @media screen and (max-width: 992px) {
 
+
     .section {
-      padding: 5rem 0;
+      padding: 3rem 0;
     }
 
     .nav-item .nav-link {
@@ -664,6 +666,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
     }
 
     .contact h2 span {
-      display: block;
+      text-align: center;
+    }
+    .contact p{
+      text-align: center;
+    }
+    .contact form{
+      min-width: 50px;
     }
   }

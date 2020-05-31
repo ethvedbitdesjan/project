@@ -147,10 +147,10 @@ def register():
     registered_user=None
     username = request.form.get("username")
     password = request.form.get("pass")
-    if username is not None & password is not None:
-      registered_user = db.execute("SELECT * FROM logins WHERE username = :username AND pass = :pass ", {"username":username, "pass":password}).fetchone()
-      print(registered_user)
-      if registered_user is None:
+    
+    registered_user = db.execute("SELECT * FROM logins WHERE username = :username AND pass = :pass ", {"username":username, "pass":password}).fetchone()
+    print(registered_user)
+    if registered_user is None:
        db.execute("INSERT INTO logins(username, pass) VALUES (:username, :pass)",{"username":username, "pass":password})
        t_name_tbl = username
        s = ""
@@ -163,7 +163,7 @@ def register():
        db.commit()
        flash("you have registered. please login.")
     
-      else:
+    else:
        flash("user already registered!")
        registered_user=None
     else:

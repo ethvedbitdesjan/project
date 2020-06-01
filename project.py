@@ -81,11 +81,7 @@ def sumup():
     counting1()
     return render_template("hello.html",total=total1)
     total1=0
-@app.route("/new")
-@login_required
-def new_item():
-    food_calories=db.execute("SELECT * FROM food_calories").fetchall()
-    return render_template("newitem.html", food_calories=food_calories)
+
 @app.route("/add", methods=["GET","POST"])
 @login_required
 def add():
@@ -95,7 +91,7 @@ def add():
     global username1, total1, calories1, check1
     name=request.form.get("name")
     calories = request.form.get("calories_amount")
-    if name !="none" & calories !="0":
+    if not name or not calories:
         string="INSERT INTO "
         string +=username1
         string+="(food_item, calories) VALUES (:name, :calories)"

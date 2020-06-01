@@ -29,7 +29,7 @@
    	<label> method 1 </label> 
    	<form action="/add" method="post">
    		<input type="text" name="name" placeholder="dish or item name">
-   		<input type="number" name="calories_amount" placeholder="calories that the item has.">
+   		<input type="number" name="calories_amount" placeholder="calories that the item has per 100 grams.">
    		<input type="submit" value="add the item in my list">
    	</form>
    </p>
@@ -47,4 +47,9 @@
    		<input type="submit" value="add the component" formaction="/countdish" method="post">
    		<input type="submit" value="add the dish" formaction="/add_dish" method="post">
    	</form>
+    <p>
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+    </p>
 

@@ -98,7 +98,7 @@ def add():
         string+="(food_item, calories) VALUES (:name, :calories)"
         db.execute(string, {"name":name, "calories":calories})
         db.commit()
-     return redirect("https://projectcalories7.herokuapp.com/")
+     return redirect("http://127.0.0.1:5000/add")#redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/countdish", methods=["POST"])
 @login_required
 def countdish():
@@ -151,7 +151,7 @@ def login():
         check1=0
         flash("you just logged in.")
         username1=username
-        return redirect("https://projectcalories7.herokuapp.com/")
+        return redirect("http://127.0.0.1:5000/add")#redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/logout")
 @login_required
 def logout():

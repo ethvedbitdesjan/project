@@ -42,7 +42,7 @@
     	     <option value="{{food_calorie.food_item}} - {{food_calorie.calories}}"> </option>
     	 {% endfor %}
    		</datalist>
-   		<input type="text" name="name" placeholder="item or dish name">
+   		<input type="text" name="name" placeholder="item or dish name" value="none">
    		<input type="number" name="amount" placeholder="how much amount in grams">
    		<input type="submit" value="add the component" formaction="/countdish" method="post">
    		<input type="submit" value="add the dish" formaction="/add_dish" method="post">

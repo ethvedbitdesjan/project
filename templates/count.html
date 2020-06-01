@@ -17,9 +17,12 @@
     <h1>Count Your Calories</h1>
     <div class="item-page">
   <div class="form">
+    <p>
+    Directions: Just type what you are going to eat and see how many calories it has per 100 grams or add and sumup the total number of calories of your meal by adding the ingredients using the add button.</p>
     <form action="/count" method="post">
        <input name="food" list="foods" placeholder="food item">
 	   <datalist id="foods">
+
          {%for food_calorie in food_calories %}
     	     <option value="{{food_calorie.food_item}} - {{food_calorie.calories}}"> </option>
     	 {% endfor %}

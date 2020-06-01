@@ -13,16 +13,24 @@ check1=1
 username1=""
 def counting1():
     global total1, calories1, check1, username1
+    stringnone=None
+    stringnone1=None
+    dish=None
+    food =None
+    stringnone =request.form.get("amount")
+    stringnone1 = request.form.get("amount1")
+    print(stringnone1)
     food = request.form.get("food")
     dish= request.form.get("dish")
-    if request.form.get("amount1") is not None & dish is not None:
+    if stringnone1!="":
          amount1 = float(request.form.get("amount1"))
          num1=int(dish[-3:])
          total1 = total1 + (num1* amount1/100)
-    if request.form.get("amount") is not None & food is not None:
+    if stringnone!="":
         amount = float(request.form.get("amount"))
         num=int(food[-3:])
         total1 = total1 + (num* amount/100)
+   
     
 def main():
    app.run()    
@@ -59,7 +67,14 @@ def count_calories():
 @app.route("/count", methods=["POST"])
 def count():
     counting1()
-    return redirect("http://127.0.0.1:5000/")
+    food_calories=db.execute("SELECT * FROM food_calories").fetchall()
+    if "logged_in" in session:
+        string = "SELECT * FROM "
+        string += username1
+        dish_calories = db.execute(string).fetchall()
+        return render_template("count.html", food_calories=food_calories, dish_calories = dish_calories)
+    else:
+        return render_template("count.html", food_calories=food_calories)
 @app.route("/sumup", methods=["POST"])
 def sumup():
     global total1, calories1, check1, username1
@@ -77,7 +92,7 @@ def add():
     global username1, total1, calories1, check1
     name=request.form.get("name")
     calories = request.form.get("calories_amount")
-    if name is not None & calories is not None:
+    if name !="none" & calories !="0":
         string="INSERT INTO "
         string +=username1
         string+="(food_item, calories) VALUES (:name, :calories)"
@@ -89,7 +104,7 @@ def add():
 def countdish():
     food = request.form.get("item")
     global total1, calories1, username1, check1
-    if request.form.get("amount") is not None & food is not None:
+    if request.form.get("amount")!=0 & food !="none":
         num=int(food[-3:])
         amount=float(request.form.get("amount"))
         total1 = total1+ (num * amount/100)
@@ -98,9 +113,13 @@ def countdish():
 @login_required
 def add_dish():
     global total1, calories1, username1, check1
+    name=None
+    food=None
+    stringnone=None
+    stringnone =request.form.get("amount")
     name=request.form.get("name")
     food = request.form.get("item")
-    if request.form.get("amount") is not None & food is not None:
+    if stringnone is not None & food is not None:
         num=int(food[-3:])
         amount=float(request.form.get("amount"))
         total1 = total1+ (num * amount/100)
@@ -133,7 +152,7 @@ def login():
         flash("you just logged in.")
         username1=username
         return redirect("http://127.0.0.1:5000")
-@app.route("/logout", methods=["POST"])
+@app.route("/logout")
 @login_required
 def logout():
     session.pop("logged_in", None)
@@ -147,9 +166,9 @@ def register():
     registered_user=None
     username = request.form.get("username")
     password = request.form.get("pass")
-    
+   
     registered_user = db.execute("SELECT * FROM logins WHERE username = :username AND pass = :pass ", {"username":username, "pass":password}).fetchone()
-    print(registered_user)
+      
     if registered_user is None:
        db.execute("INSERT INTO logins(username, pass) VALUES (:username, :pass)",{"username":username, "pass":password})
        t_name_tbl = username
@@ -166,7 +185,7 @@ def register():
     else:
        flash("user already registered!")
        registered_user=None
-    
+   
     return render_template("login.html")
 @app.route("/calculator")
 def calculator():
@@ -183,8 +202,8 @@ def calculate():
     age = request.form.get("age")
     lifestyle = request.form.get("lifestyle")
     email = request.form.get("email")
-    if not mass or  not gender or not height or not hip or not neck or not abdomen or not lifestyle or not name:
-        return "failure"
+    if not mass or  not gender or not height or not hip or not neck or not abdomen or not lifestyle:
+        return "failure. All information was not provided"
     else:
         height = float(height)
         mass = float(mass)
@@ -234,8 +253,10 @@ def calculate():
         return render_template("support.html", bmi = bmi,bmr=bmr,lean_mass=lean_mass,calorie=calorie, body_fat_percentage=body_fat_percentage)
 @app.route("/message", methods=["GET", "POST"])
 def message():
+    stringnone = None
+    stringnone =request.form.get("valuable_name")
     feedback0 = request.form.get("feedback")
-    if request.form.get("valuable_name") is not None:
+    if stringnone is not None:
         name = request.form.get("valuable_name")
         feedback0+="sent by" + name
         server = smtplib.SMTP("smtp.gmail.com",587)

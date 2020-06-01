@@ -88,16 +88,17 @@ def add():
     if request.method =="GET":
          food_calories=db.execute("SELECT * FROM food_calories").fetchall()
          return render_template("newitem.html", food_calories=food_calories)
-    global username1, total1, calories1, check1
-    name=request.form.get("name")
-    calories = request.form.get("calories_amount")
-    if name or  calories:
+    else:
+     global username1, total1, calories1, check1
+     name=request.form.get("name")
+     calories = request.form.get("calories_amount")
+     if name or  calories:
         string="INSERT INTO "
         string +=username1
         string+="(food_item, calories) VALUES (:name, :calories)"
         db.execute(string, {"name":name, "calories":calories})
         db.commit()
-    return redirect("https://projectcalories7.herokuapp.com/")
+     return redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/countdish", methods=["POST"])
 @login_required
 def countdish():

@@ -81,14 +81,17 @@ def sumup():
     counting1()
     return render_template("hello.html",total=total1)
     total1=0
-@app.route("/new", methods=["POST"])
+@app.route("/new")
 @login_required
 def new_item():
     food_calories=db.execute("SELECT * FROM food_calories").fetchall()
     return render_template("newitem.html", food_calories=food_calories)
-@app.route("/add", methods=["POST"])
+@app.route("/add", methods=["GET","POST"])
 @login_required
 def add():
+    if request.method =="GET":
+         food_calories=db.execute("SELECT * FROM food_calories").fetchall()
+         return render_template("newitem.html", food_calories=food_calories)
     global username1, total1, calories1, check1
     name=request.form.get("name")
     calories = request.form.get("calories_amount")
@@ -108,7 +111,7 @@ def countdish():
         num=int(food[-3:])
         amount=float(request.form.get("amount"))
         total1 = total1+ (num * amount/100)
-    return render_template("newitem.html")
+    return redirect("https://projectcalories7.herokuapp.com/add")
 @app.route("/add_dish",methods=["POST"])
 @login_required
 def add_dish():

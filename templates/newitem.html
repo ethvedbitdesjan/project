@@ -47,7 +47,8 @@
    		<input type="submit" value="add the component" formaction="/countdish" method="post">
    		<input type="submit" value="add the dish" formaction="/add_dish" method="post">
    	</form>
-    <p>
+   </p>
+    <p style="color:black; font-weight: bold;">
       {% for message in get_flashed_messages() %}
         {{ message }}
       {% endfor %}

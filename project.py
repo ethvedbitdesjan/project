@@ -18,6 +18,8 @@ def counting1():
     stringnone =request.form.get("amount")
     food = request.form.get("food")
     if not stringnone or not food:
+        flash("invalid input")
+    else:
         amount = float(request.form.get("amount"))
         num=int(food[-3:])
         total1 = total1 + (num* amount/100)

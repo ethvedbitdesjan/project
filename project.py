@@ -91,7 +91,7 @@ def add():
     global username1, total1, calories1, check1
     name=request.form.get("name")
     calories = request.form.get("calories_amount")
-    if not name or not calories:
+    if name or  calories:
         string="INSERT INTO "
         string +=username1
         string+="(food_item, calories) VALUES (:name, :calories)"

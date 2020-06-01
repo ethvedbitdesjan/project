@@ -88,16 +88,17 @@ def add():
     if request.method =="GET":
          food_calories=db.execute("SELECT * FROM food_calories").fetchall()
          return render_template("newitem.html", food_calories=food_calories)
-    else:
+    elif request.method=="POST":
      global username1, total1, calories1, check1
      name=request.form.get("name")
      calories = request.form.get("calories_amount")
      if name or  calories:
         string="INSERT INTO "
-        string +=username1
+        string +=name
         string+="(food_item, calories) VALUES (:name, :calories)"
         db.execute(string, {"name":name, "calories":calories})
         db.commit()
+        flash("item added.")
      return redirect("https://projectcalories7.herokuapp.com/add")
 @app.route("/countdish", methods=["POST"])
 @login_required
@@ -119,12 +120,12 @@ def add_dish():
     stringnone =request.form.get("amount")
     name=request.form.get("name")
     food = request.form.get("item")
-    if stringnone is not None & food is not None:
+    if not stringnone or not food:
         num=int(food[-3:])
         amount=float(request.form.get("amount"))
         total1 = total1+ (num * amount/100)
         string="INSERT INTO "
-        string +=username1
+        string +=name
         string+="(food_item, calories) VALUES (:name, :calories)"
         db.execute(string, {"name":name, "calories":total1})
         db.commit()

@@ -98,7 +98,7 @@ def add():
         string+="(food_item, calories) VALUES (:name, :calories)"
         db.execute(string, {"name":name, "calories":calories})
         db.commit()
-    return redirect("http://127.0.0.1:5000/")
+    return redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/countdish", methods=["POST"])
 @login_required
 def countdish():
@@ -129,7 +129,7 @@ def add_dish():
         db.execute(string, {"name":name, "calories":total1})
         db.commit()
         flash("new dish added.")
-    return redirect("http://127.0.0.1:5000/")
+    return redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/login.html", methods=["GET","POST"])
 def login():
     global username1, total1, check1, calories1
@@ -151,7 +151,7 @@ def login():
         check1=0
         flash("you just logged in.")
         username1=username
-        return redirect("http://127.0.0.1:5000")
+        return redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/logout")
 @login_required
 def logout():
@@ -264,6 +264,6 @@ def message():
         server.login("ved6734@gmail.com","diokdmgnfmpyjvxk")
         server.sendmail("ved6734@gmail.com","ved6734@gmail.com", feedback0)
     db.execute("INSERT INTO feedback(name, feedback) VALUES (:name, :feedback)", {"name":name, "feedback":feedback0})
-    return redirect("http://127.0.0.1:5000/")
+    return redirect("https://projectcalories7.herokuapp.com/")
 if __name__== '__main__':
     main()

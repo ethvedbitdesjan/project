@@ -14,19 +14,10 @@ username1=""
 def counting1():
     global total1, calories1, check1, username1
     stringnone=None
-    stringnone1=None
-    dish=None
     food =None
     stringnone =request.form.get("amount")
-    stringnone1 = request.form.get("amount1")
-    print(stringnone1)
     food = request.form.get("food")
-    dish= request.form.get("dish")
-    if stringnone1!="":
-         amount1 = float(request.form.get("amount1"))
-         num1=int(dish[-3:])
-         total1 = total1 + (num1* amount1/100)
-    if stringnone!="":
+    if not stringnone or not food:
         amount = float(request.form.get("amount"))
         num=int(food[-3:])
         total1 = total1 + (num* amount/100)

@@ -26,22 +26,13 @@
          {%for food_calorie in food_calories %}
     	     <option value="{{food_calorie.food_item}} - {{food_calorie.calories}}"> </option>
     	 {% endfor %}
+       {% for dish_calorie in dish_calories %}
+               <option value="{{dish_calorie.food_item}} - {{ dish_calorie.calories}}"> </option>
+         {% endfor %}
        </datalist>
-       <input name="dish" list="dishes" placeholder="dish item">
-       <datalist id="dishes">
-       	 {% for dish_calorie in dish_calories %}
-       	       <option value="{{dish_calorie.food_item}} - {{ dish_calorie.calories}}"> </option>
-       	 {% endfor %}
-       </datalist>
-       <p style="font-size: 11; color:grey">
-       dish items only work if you are a registered user and have added some dishes to your own collection</p>
-       <p>
        	  <input type="number" name="amount" placeholder="enter how many grams of food item have you eaten">
        </p>
-       <p>
-       	<input type="number" name="amount1" placeholder="enter how many grams of dish you have eaten">
-       </p> 
-       <p>
+             <p>
        <input type="submit" value="add">
        </p>
        <p>

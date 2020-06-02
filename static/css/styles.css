@@ -28,7 +28,7 @@
   background: #FFFFFF;
   width:1100px;
   width: 1300px;
-  height:500px;
+  height:600px;
   margin: 0 auto 50px;
   padding: 10px;
   text-align: center;
@@ -267,7 +267,7 @@ ul{
   .calculator-form {
   background: #FFFFFF;
   width: 400px;
-  height:500px;
+  height:600px;
 }
 .calculator-form input {
   width: 60%;
@@ -326,5 +326,5 @@ ul{
   width:100%;
   font-size:20px;
  }
-
+  
 }

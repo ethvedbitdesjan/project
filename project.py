@@ -213,9 +213,9 @@ def bdf():
         if not email:
             emailenter =1
         if gender =="male":
-            body_fat_percentage = 495/((1.0324-(0.19077*(math.log10(abdomen - neck))) - (0.15456*(math.log10(height)))) -450)
+            body_fat_percentage = 495/(1.0324 - (0.19077 * (math.log10(87 - 51))) + (0.15456*(math.log10(163))))-450 
         else:
-            body_fat_percentage = 495/(1.29579-(0.35004*(math.log10(abdomen + hip - neck))) + (0.22100*(math.log10(height*100)))) - 450
+            body_fat_percentage=495/(1.29579-(0.35004*(math.log10(87 + 83 - 51))) + (0.22100*(math.log10(163)))) - 450
         lean_mass = mass - (mass*body_fat_percentage/100)
         lean_mass = round(lean_mass,2)
         body_fat_percentage = round(body_fat_percentage,2)

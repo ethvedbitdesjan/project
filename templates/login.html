@@ -6,25 +6,53 @@
 		login
 
 	</title>
+  <link rel="shortcut icon" href="#" />
    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-gymso-style.css') }}">
+      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+
+
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 	 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-	 <div class="topnav">
+	 <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+   <div class="topnav" id="navbarNav">
   <a  href="/">Home</a>
   <a href="/calculator">body basics</a>
   <a  class="active" href="login.html">login</a>
   <a  href="count.html"> calculate calorie_intake</a>
 </div>
+ <section class="hero d-flex flex-column justify-content-center align-items-center">
+
+ 
+    <h1 style="color: #48C803"> LOGIN OR REGISTER </h1>
+    <p style="color:#FFFFFF; font-weight: bold;">
+    Just fill in the info and click login or register</p>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <div class="login-page">
   <div class="form">
-  	<form class="login-form" action="/login.html" method="post">
+  	<form action="/login.html" method="post">
       <input type="text" name="username" placeholder="username(no spaces)"/>
       <input type="password" name="pass" placeholder="password"/>
       <input type="submit" value="login">
-      <input type="submit" value="register(please fill the above before clicking)" formaction="/register" method="post">
+      <input type="submit" value="register (fill all prompts above)" formaction="/register" method="post">
      </form>
 
   </div>
@@ -34,3 +62,4 @@
         {{ message }}
       {% endfor %}
     </p>
+  </section>

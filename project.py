@@ -29,7 +29,7 @@ def main():
    app.run()    
 app = Flask(__name__)
 app.secret_key="bajabaja"
-engine = create_engine("postgres://rwgezovhlswkpl:76b852320eeed7369c85e157e200560275201569c1920d13dd5d674840c1758b@ec2-52-70-15-120.compute-1.amazonaws.com:5432/da52lq56einar8")
+engine = create_engine("postgres://ulifhsfotoxlau:8d5be9febece7cf7019f40c8063081a88c2a5ef866a6cee5fcf59b0e04bc9713@ec2-34-224-229-81.compute-1.amazonaws.com:5432/dbguileu0eavj8")
 db = scoped_session(sessionmaker(bind=engine))
 
 def login_required(f):

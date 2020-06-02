@@ -6,23 +6,45 @@
         <link href="styles.css" rel="stylesheet" type="text/css">
       	<meta name="viewport" content ="initial-scale=1, width =device-width">
       	<title style="color:black; font-size: 36"> Get To Know Your Body </title> 
-    
-      </head>
-      <body>
+       <link rel="shortcut icon" href="#" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-gymso-style.css') }}">
+      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+   <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
          <div class="topnav">
   <a  href="/">Home</a>
   <a class="active" href="/calculator">body basics</a>
   <a href="login.html">login</a>
   <a  href="count.html"> calculate calorie_intake</a>
 </div>
-      	
+      <section class="hero">	
           <h1>
             Get to know your body
       	</h1>
         <h2>
       	Enter the information
       	</h2>
-        <div class="item-page">
+        <div class="login-page">
         <div class="form">
       	<p>
       		<form action="/calculate" method ="post">
@@ -73,8 +95,11 @@
             </p>
           
           </div>
-            
-             
+            </form>
+          </p>
+        </div>
+      </div>
+      </section>       
       		
       </body>
  </html>

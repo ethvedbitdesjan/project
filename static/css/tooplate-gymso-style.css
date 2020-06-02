@@ -301,14 +301,17 @@ https://www.tooplate.com/view/2119-gymso-fitness
     width: 30px;
     height: 35px;
     outline: none;
+    color:#BDB76B;
   }
 
   .navbar-toggler:focus {
     outline: none;
+    color:#BDB76B;
   }
 
   .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     background: transparent;
+    color:#BDB76B;
   }
 
   .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before,
@@ -317,6 +320,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     transition: top 300ms 50ms ease, transform 300ms 350ms ease;
     transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
     top: 0;
+    color:#BDB76B;
   }
 
   .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
@@ -329,6 +333,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   .navbar-toggler .navbar-toggler-icon {
     background: var(--primary-color);
+    color:#BDB76B;
     transition: background 10ms 300ms ease;
     display: block;
     width: 30px;
@@ -625,7 +630,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
      RESPONSIVE STYLES              
   -----------------------------------------*/
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 576px) {
 
 
     .section {
@@ -654,7 +659,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (device-height: 931px) {
 
     h1 {
       font-size: 38px;

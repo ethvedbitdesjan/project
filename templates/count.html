@@ -6,14 +6,38 @@
   <title>
     count your calories
   </title>
+  <link rel="shortcut icon" href="#" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-gymso-style.css') }}">
+      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+   <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
    <div class="topnav">
   <a  href="/">Home</a>
   <a href="/calculator">body basics</a>
   <a href="login.html">login</a>
   <a class="active" href="count.html"> calculate calorie_intake</a>
 </div>
+<section class="hero d-flex flex-column justify-content-center align-items-center">
     <h1>Count Your Calories</h1>
     <div class="item-page">
   <div class="form">
@@ -51,3 +75,6 @@
         {{ message }}
       {% endfor %}
     </p>
+  </div>
+</div>
+</section>

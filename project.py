@@ -208,6 +208,7 @@ def bdf():
         abdomen = float(abdomen)
         neck  =float(neck)
         hip = float(hip)
+        height= height*100
         emailenter=0
         if not email:
             emailenter =1

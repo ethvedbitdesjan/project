@@ -3,18 +3,31 @@
 <head>
      <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
      <link  type="text/css" rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
     <title>
         output
     </title>
 </head>
 <body>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
     <div class="topnav">
   <a  href="/">Home</a>
   <a href="/calculator">body basics</a>
   <a href="login.html">login</a>
   <a  href="count.html"> calculate calorie_intake</a>
 </div>
-    <div class="output"
+    <section class="hero1 d-flex flex-column justify-content-center align-items-center">
+    <div class="output-form">
         <p>
             your bmi is: {{bmi}}
         </p>
@@ -29,5 +42,6 @@
         </p>
         your lean_mass is : {{lean_mass}}
     </div>
+  </section>
      </body>
 </html>

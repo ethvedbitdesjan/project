@@ -8,12 +8,21 @@
 	</title>
 </head>
 <body>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
      <div class="topnav">
   <a  href="/">Home</a>
   <a href="/calculator">body basics</a>
   <a href="login.html">login</a>
   <a  href="count.html"> calculate calorie_intake</a>
 </div>
+
+<section class="hero d-flex flex-column justify-content-center align-items-center">
+    <div class="output-form">
      <h1 style="text-align: center; color:black; background-color: green; font-weight: bold; font-size: 27px;"> Total Calories Consumed</h1>
      <p class="output"> 
         You consumed: {{total}}

@@ -1,18 +1,112 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
-  width: 750px;
-  padding: 5% 0 0;
-  margin: auto;
-  height: 800px;
+  width: 650px;
+  padding: 20px 0 0;
+  margin: 10px;
+  height: 700px;
+  align-self: center;
+}
+.output-form{
+  position:relative;
+  z-index:1;
+  background:white;
+  width:1100px;
+  height:700px;
+  margin:auto auto 45px;
+  padding:10px;
+}
+.output-form p{
+  color:green;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 25px; 
+}
+.calculator-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width:1100px;
+  width: 1300px;
+  height:500px;
+  margin: 0 auto 50px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.calculator-form label{
+  text-transform:uppercase;
+  color:#FC4567;
+  font-weight:bold;
+  font-style:italic;
+  width:10%;
+  padding:10px;
+}
+.calculator-form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background:#B1B1B1;
+  color:black;
+  font-weight: 400;
+  width: 25%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.calculator-form select{
+   font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 25%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.calculator-form input[type=submit] {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 45%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.calculator-form input[type=submit]:hover,.form input[type=submit]::active,.form input[type=submit]::focus {
+  background: #43A047;
+}
+.calculator-form p {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
 }
 .hero {
     background-image: url('../images/cook-2364221_1280.jpg');
-    background-size: 150px 300px;
+    background-size: 100% 100%;
     background-position: top;
-    background-repeat: repeat;
     vertical-align: middle;
-    height: 4000%;
+    position: relative;
+  }
+  .hero1{
+    background-image: url('../images/merged.jpg');
+    background-size: 100% 100%;
+    background-position: top;
+    vertical-align: middle;
+    position: relative;
+  }
+  body{
+    background-image: url('../images/cook-2364221_1280.jpg');
+    background-size: 100% 100%;
+    background-position: top;
+    vertical-align: middle;
     position: relative;
   }
   .bg-overlay {
@@ -59,17 +153,6 @@
 }
 .form select{
    font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.output{
-  font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -141,11 +224,6 @@
 
 
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
@@ -179,12 +257,46 @@ ul{
 }
 @media only screen and (max-device-width:450px){
   .login-page{
-    height:500px;
+    height:650px;
     width:350px;
   }
   .form{
-    height:400px;
+    height:470px;
   }
+  .calculator-form {
+  background: #FFFFFF;
+  width: 400px;
+  height:500px;
+}
+.calculator-form input {
+  width: 60%;
+  padding:5px;
+  margin:3px;
+  padding-top: 10px;
+}
+.calculator-form select{
+   width: 60%;
+   padding:5px;
+   margin:3px;
+   padding-top: 10px;
+}
+.calculator-form label{
+  width:20%;
+  padding:5px;
+
+}
+.calculator-form input[type=submit] {
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+ 
+}
+.output-form{
+  width:375px;
+  height:400px;
+}
+
 }
 @media only screen and (min-device-height:1000px){
   .login-form{
@@ -192,8 +304,8 @@ ul{
     width:600px;
   }
   .form{
-    height:450px;
-    width:600px;
+    height:600px;
+    width:700px;
   }
   .form input {
   font-family: "Roboto", sans-serif;
@@ -213,4 +325,5 @@ ul{
   width:100%;
   font-size:20px;
  }
+
 }

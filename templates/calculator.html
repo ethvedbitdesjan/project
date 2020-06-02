@@ -10,20 +10,17 @@
    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  
      <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
      <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-gymso-style.css') }}">
-      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
-     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
-     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/vedo.css') }}">
+    
 </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-   <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
      <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
      <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
      <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
@@ -37,21 +34,20 @@
   <a href="login.html">login</a>
   <a  href="count.html"> calculate calorie_intake</a>
 </div>
-      <section class="hero">	
-          <h1>
+      <section class="hero1">	
+          <h1 style="color:#48C803">
             Get to know your body
       	</h1>
-        <h2>
+        <h2 style="color:#FFFFFF">
       	Enter the information
       	</h2>
         <div class="login-page">
-        <div class="form">
+        <div class="calculator-form">
       	<p>
       		<form action="/calculate" method ="post">
       			
       			<p>
-      			<label > mass in kg to 1 decimal place </label> <input id = 'mass' name="mass" type ='number' step = '0.1' placeholder="mass">  </p>    			
-      			<p>
+      			<label > mass in kg </label> <input id = 'mass' name="mass" type ='number' step = '0.1' placeholder="mass to one decimal place">  
       			  <label> Gender </label>
       			  <select name="gender">
       			  	<option disabled selected value=""> Gender </option>
@@ -60,16 +56,14 @@
       			</select>
       		</p>
       		<p>
-                <label>height in metres </label> <input name="height" placeholder="height" type ="number" step="0.000001" >
+                <label>height </label> <input name="height" placeholder="height in metres" type ="number" step="0.000001" >
+            
+                <label >abdomen </label> <input name ="abdomen" placeholder="abdomen in centimetres" type ="number" step="0.000001" >
             </p>
             <p>
-                <label >abdomen in centimetres </label> <input name ="abdomen" placeholder="abdomen" type ="number" step="0.000001" >
-            </p>
-            <p>
-                <label>neck in centimetres </label> <input name="neck" type ="number" placeholder="neck" step="0.000001">
-            </p>
-            <p>
-                <label >hip in centimetres </label> <input name ="hip" type ="number" placeholder="hip" step="0.000001" >
+                <label>neck </label> <input name="neck" type ="number" placeholder="neck in centimetres" step="0.000001">
+           
+                <label >hip </label> <input name ="hip" type ="number" placeholder="hip in centimetres" step="0.000001" >
             </p>
             <p>
              	<label > select lifestyle </label>
@@ -80,14 +74,16 @@
              		<option value="moderate"> moderate(3-5 days of sport /week)</option>
              		<option value="vigorous"> vigorous(6-7 days of sport /week)</option>
              	</select>
-             </p>
-            <p>
+            
             	 <label > age </label> <input name="age" type = "number" placeholder ="age" >
             </p>
             <p style="text-align:center; font-weight: bold;">
             <input type="submit" value="calculate" >
           </p>
-          
+          </form>
+        </p>
+      </div>
+      <div class="form">
           <h1 style="font-weight: bold;"> Get the data on your mail.</h1><p> The infromation provided will also be stored for survey purposes. By filling in the information, the user allows the owner to use the data for survey or project purposes.</p>
               <label > name(optional) </label> <input name ="name" type = "text" placeholder="name">
             <p><div id="personal">

@@ -10,22 +10,24 @@
    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
      <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
-     <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-gymso-style.css') }}">
       <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
      <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
      <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
      <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/vedo.css') }}">
+      
 
 
 </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 	 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-	 <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-     <script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
      <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
      <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
      <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
@@ -39,11 +41,11 @@
   <a  class="active" href="login.html">login</a>
   <a  href="count.html"> calculate calorie_intake</a>
 </div>
- <section class="hero d-flex flex-column justify-content-center align-items-center">
+ <section class="hero1 d-flex flex-column justify-content-center align-items-center">
 
  
-    <h1 style="color: #48C803"> LOGIN OR REGISTER </h1>
-    <p style="color:#FFFFFF; font-weight: bold;">
+    <h1 style="color: #48C803; font-weight: 400"> LOGIN OR REGISTER </h1>
+    <p style="color:#48C803; font-weight: bold;">
     Just fill in the info and click login or register</p>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <div class="login-page">
@@ -54,7 +56,10 @@
       <input type="submit" value="login">
       <input type="submit" value="register (fill all prompts above)" formaction="/register" method="post">
      </form>
-
+      <p>
+      <form action="/logout" method="post">
+        <input type="submit" value="logout">
+      </form>
   </div>
 </div>
    <p>

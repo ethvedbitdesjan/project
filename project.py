@@ -197,19 +197,17 @@ def bdf():
     neck= request.form.get("neck")
     height = request.form.get("height")
     hip = request.form.get("hip")
-    age = request.form.get("age")
-    lifestyle = request.form.get("lifestyle")
+   
     email = request.form.get("email")
     if not height or not neck or not abdomen or not mass:
         flash("invalid input")
-        return("failure! All data was not provided.")
+        return render_template("error.html", msg="failure! Required data was not provided.")
     else:
         height = float(height)
         mass = float(mass)
         abdomen = float(abdomen)
         neck  =float(neck)
         hip = float(hip)
-        age = float(age)
         emailenter=0
         if not email:
             emailenter =1
@@ -234,21 +232,15 @@ def calculate():
     name = request.form.get("name")
     mass = request.form.get("mass")
     gender = request.form.get("gender")
-    abdomen = request.form.get("abdomen")
-    neck= request.form.get("neck")
     height = request.form.get("height")
-    hip = request.form.get("hip")
     age = request.form.get("age")
     lifestyle = request.form.get("lifestyle")
     email = request.form.get("email")
     if not mass or  not gender or not height or not lifestyle:
-        return "failure. All information was not provided"
+        return render_template("error.html",msg ="failure. Required data was not provided")
     else:
         height = float(height)
         mass = float(mass)
-        abdomen = float(abdomen)
-        neck  =float(neck)
-        hip = float(hip)
         age = float(age)
         emailenter=0
         if not email:

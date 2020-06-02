@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+     <link  type="text/css" rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+    <title>
+        output
+    </title>
+</head>
+<body>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+    <div class="topnav">
+  <a  href="/">Home</a>
+  <a href="/calculator">body basics</a>
+  <a href="login.html">login</a>
+  <a  href="count.html"> calculate calorie_intake</a>
+</div>
+    <section class="hero1 d-flex flex-column justify-content-center align-items-center">
+    <div class="output-form">
+        <p>
+            Error: {{msg}}
+        </p>
+        <p>
+            For body fat percentage, the following data is needed: mass, height, abdomen, hip, neck and gender.
+        </p>
+        <p>
+            For bmi and bmr, the following data is required: height, mass, age, lifestyle and gender. 
+       </p>
+    </div>
+  </section>
+     </body>
+</html>

@@ -188,6 +188,47 @@ def register():
 @app.route("/calculator")
 def calculator():
     return render_template("calculator.html")
+@app.route("/bdf", methods=["POST"])
+def bdf():
+    name = request.form.get("name")
+    mass = request.form.get("mass")
+    gender = request.form.get("gender")
+    abdomen = request.form.get("abdomen")
+    neck= request.form.get("neck")
+    height = request.form.get("height")
+    hip = request.form.get("hip")
+    age = request.form.get("age")
+    lifestyle = request.form.get("lifestyle")
+    email = request.form.get("email")
+    if not height or not neck or not abdomen or not mass:
+        flash("invalid input")
+        return("failure! All data was not provided.")
+    else:
+        height = float(height)
+        mass = float(mass)
+        abdomen = float(abdomen)
+        neck  =float(neck)
+        hip = float(hip)
+        age = float(age)
+        emailenter=0
+        if not email:
+            emailenter =1
+        if gender =="male":
+            body_fat_percentage = 495/((1.0324-(0.19077*(math.log10(abdomen - neck))) - (0.15456*(math.log10(height)))) -450)
+        else:
+            body_fat_percentage = 495/(1.29579-(0.35004*(math.log10(abdomen + hip - neck))) + (0.22100*(math.log10(height*100)))) - 450
+        lean_mass = mass - (mass*body_fat_percentage/100)
+        lean_mass = round(lean_mass,2)
+        body_fat_percentage = round(body_fat_percentage,2)
+        message = "yoour body fat percentage is " + str(body_fat_percentage)
+        message+="your lean mass is " + str(lean_mass)
+        if emailenter!=1:
+            print(email+"hi")
+            server = smtplib.SMTP("smtp.gmail.com",587)
+            server.starttls()
+            server.login("ved6734@gmail.com","diokdmgnfmpyjvxk")
+            server.sendmail("ved6734@gmail.com",email, message)
+        return render_template("support.html", lean_mass=lean_mass, body_fat_percentage=body_fat_percentage)
 @app.route("/calculate", methods =["POST"])
 def calculate():
     name = request.form.get("name")
@@ -200,7 +241,7 @@ def calculate():
     age = request.form.get("age")
     lifestyle = request.form.get("lifestyle")
     email = request.form.get("email")
-    if not mass or  not gender or not height or not hip or not neck or not abdomen or not lifestyle:
+    if not mass or  not gender or not height or not lifestyle:
         return "failure. All information was not provided"
     else:
         height = float(height)
@@ -209,14 +250,15 @@ def calculate():
         neck  =float(neck)
         hip = float(hip)
         age = float(age)
+        emailenter=0
         if not email:
             emailenter =1
         bmi = mass / (height*height)
         if gender =="male":
             bmr = (10*mass)+(625* height) - (5*age) + 5
-            body_fat_percentage = 495/((1.0324-(0.19077*(math.log10(abdomen - neck))) - (0.15456*(math.log10(height)))) -450)
+            
         else:
-            body_fat_percentage = 495/(1.29579-(0.35004*(math.log10(abdomen + hip - neck))) + (0.22100*(math.log10(height*100)))) - 450
+            
             bmr = (10*mass)+(625* height) - (5*age) -161
     
         
@@ -228,17 +270,15 @@ def calculate():
             calorie = bmr*1.55
         else:
             calorie = bmr*1.725
-        lean_mass = mass - (mass*body_fat_percentage/100)
+        
         bmi = round(bmi,2)
         bmr = round(bmr,2)
-        lean_mass = round(lean_mass,2)
-        body_fat_percentage = round(body_fat_percentage,2)
-        calorie = round(calorie,2)
-        message = "your bmr is " + str(bmr) + " and your daily requirement of calories is " + str(calorie) 
-        message = message + "yoour body fat percentage is " + str(body_fat_percentage)
-       
         
-        if email !="":
+        calorie = round(calorie,2)
+        message = "your bmr is " + str(bmr) +", your bmi is " + str(bmi) + " and your daily requirement of calories is " + str(calorie) 
+      
+        
+        if emailenter !=1:
             print(email+"hi")
             server = smtplib.SMTP("smtp.gmail.com",587)
             server.starttls()
@@ -246,9 +286,9 @@ def calculate():
             server.sendmail("ved6734@gmail.com",email, message)
         file = open("registered.csv", "a")
         writer = csv.writer(file)
-        writer.writerow((name, age, lifestyle, bmi, bmr, lean_mass,calorie, body_fat_percentage))
+        writer.writerow((name, age, lifestyle, bmi, bmr,calorie))
         file.close()
-        return render_template("support.html", bmi = bmi,bmr=bmr,lean_mass=lean_mass,calorie=calorie, body_fat_percentage=body_fat_percentage)
+        return render_template("support.html", bmi = bmi,bmr=bmr,calorie=calorie)
 @app.route("/message", methods=["GET", "POST"])
 def message():
     stringnone = None

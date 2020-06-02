@@ -17,10 +17,11 @@
   padding:10px;
 }
 .output-form p{
-  color:green;
+  color:#1F9AE5;
   font-weight: bolder;
   font-style: italic;
-  font-size: 25px; 
+  font-size: 25px;
+  text-underline-position: under; 
 }
 .calculator-form {
   position: relative;

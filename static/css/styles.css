@@ -263,7 +263,10 @@ ul{
     width:350px;
   }
   .form{
-    height:530px;
+    height:470px;
+  }
+  .form #newitem{
+    height:570px;
   }
   .calculator-form {
   background: #FFFFFF;

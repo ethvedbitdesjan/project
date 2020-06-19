@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	 <link  type="text/css" rel="stylesheet" href="styles.css">
+	<title>
+		Make your own diet
+	</title>
+  <link rel="shortcut icon" href="#" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link type="text/css" rel="stylesheet" href="C:\Users\ved67\Desktop\testing(1)\static\css\styles.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/vedo.css') }}">
+      </head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/aos.js') }}"></script>
+     <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+     <script  type="text/javascript" src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+	 <div class="topnav">
+  <a  href="/">Home</a>
+  <a href="/calculator">body basics</a>
+  <a href="login.html">login</a>
+  <a  href="count.html"> calculate calorie_intake</a>
+</div>
+<section class="hero d-flex flex-column justify-content-center align-items-center">
+ <h1 style="text-align: center; color: white"> Understand your needs </h1>
+ 
+ <p class="white_para">
+     The daily calorie intake that you saw before was for maintaining your body weight. Now we will look at how to reduce body fat.
+</p>
+<p class="white_para"> There are many diets that can be followed but we will look at only the Low carb diet because it is ideal for first-timers.
+</p>
+<p class="white_para">
+  Low Carb diet can be used by anyone new but takes some time to show results. It includes taking in 40 % carbohydrate, 30% protein and 30% fat.
+</p>
+<p class="white_para">
+  How many calories should you intake as you start your diet? Reduce 150 caories from your required daily intake for the first week and every week reduce a further 50.
+</p>
+<p class="white_para">
+  The calculator below will help you estimate the grams of carbohydrate, fat and protein you should eat for following the Low Carb Diet.
+</p>
+
+<div class="login-page">
+        <div class="form">
+        <p>
+          <form action="/diet_cal" method ="post">
+            <input type="number" placeholder="required daily intake of calories" name="req_calories">
+            <input type="number" placeholder="amount of calories you wish to reduce" name="reduce_cal">
+            <input type="submit" value="calculate">
+          </form>
+        </p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

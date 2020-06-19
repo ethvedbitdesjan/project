@@ -332,3 +332,8 @@ ul{
  }
   
 }
+.white_para{
+  color:white;
+  font-style: italic;
+  font-size: 15;
+}

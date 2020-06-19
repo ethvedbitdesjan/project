@@ -282,6 +282,18 @@ def calculate():
         writer.writerow((name, age, lifestyle, bmi, bmr,calorie))
         file.close()
         return render_template("support.html", bmi = bmi,bmr=bmr,calorie=calorie)
+@app.route('/diet_cal', methods=["GET" , "POST" ])
+def diet_plan():
+    if request.method=="GET":
+        return render_template("diet_plan.html")
+    else:
+        req_cal = float(request.form.get("req_calories"))
+        reduce_cal = float(request.form.get("reduce_cal"))
+        req_cal = req_cal - reduce_cal
+        carb = (0.4 * req_cal)/4
+        protein = (0.3 * req_cal)/4
+        fat = (0.3 * req_cal)/9
+        return render_template("diet.html", fat=fat, protein=protein, carb=carb)
 @app.route("/message", methods=["GET", "POST"])
 def message():
     stringnone = None

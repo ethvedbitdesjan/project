@@ -7,7 +7,6 @@ import smtplib
 import os
 import csv
 import math
-from twilio.twiml.messaging_response import MessagingResponse
 total1 =0
 calories1=0
 check1=1
@@ -32,7 +31,6 @@ app = Flask(__name__)
 app.secret_key="bajabaja"
 engine = create_engine("postgres://ulifhsfotoxlau:8d5be9febece7cf7019f40c8063081a88c2a5ef866a6cee5fcf59b0e04bc9713@ec2-34-224-229-81.compute-1.amazonaws.com:5432/dbguileu0eavj8")
 db = scoped_session(sessionmaker(bind=engine))
-
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -75,7 +73,6 @@ def sumup():
     counting1()
     return render_template("hello.html",total=total1)
     total1=0
-
 @app.route("/add", methods=["GET","POST"])
 @login_required
 def add():
@@ -309,20 +306,5 @@ def message():
         server.sendmail("ved6734@gmail.com","ved6734@gmail.com", feedback0)
     db.execute("INSERT INTO feedback(name, feedback) VALUES (:name, :feedback)", {"name":name, "feedback":feedback0})
     return redirect("https://projectcalories7.herokuapp.com/")
-GOOD_BOY_URL = "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-
-
-@app.route("/whatsapp", methods=["GET", "POST"])
-def reply_whatsapp():
-
-    response = MessagingResponse()
-    num_media = int(request.values.get("NumMedia"))
-    if not num_media:
-        msg = response.message("Send us an image!")
-    else:
-        msg = response.message("Thanks for the image. Here's one for you!")
-        msg.media(GOOD_BOY_URL)
-    return str(response)
-
 if __name__== '__main__':
     main()

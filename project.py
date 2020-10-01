@@ -146,7 +146,7 @@ def login():
      else:
         session['logged_in']=True
         check1=0
-        flash("you just logged in.")
+        flash("you just logged in."+str(registered_user))
         username1=username
         return redirect("https://projectcalories7.herokuapp.com/")
 @app.route("/logout")

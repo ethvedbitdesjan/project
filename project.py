@@ -22,6 +22,7 @@ def counting1():
     else:
         amount = float(request.form.get("amount"))
         num=int(food[-3:])
+        num100=1
         total1 = total1 + (num* amount/100)
    
     
